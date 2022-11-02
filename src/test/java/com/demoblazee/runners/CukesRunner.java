@@ -12,7 +12,7 @@ import java.awt.*;
 @CucumberOptions(
       features ="src/test/resources/features",
         glue = "com/demoblazee/step_definitions",
-        dryRun = true,
+        dryRun = false,
         tags = "@wip"
 
 
