@@ -1,8 +1,12 @@
 package com.demoblazee.step_definitions;
 
+
+import io.cucumber.java.en.And;
+
 import com.demoblazee.pages.ProductPage;
 import com.demoblazee.utilities.ConfigurationReader;
 import com.demoblazee.utilities.Driver;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
@@ -17,6 +21,11 @@ ProductPage productPage= new ProductPage();
         productPage.navigateTo(product,category);
         productPage.addToCart();
         productPage.home.click();
+
+    }
+
+    @And("User navigates to cart and removes {string}")
+    public void userNavigatesToCartAndRemoves(String product) {
 
     }
 }
