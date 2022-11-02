@@ -4,3 +4,4 @@ Feature: Adidas Order Placement Functionalities
   Scenario: Placing a successful order
     Given User is on the page
     When User adds "product" from "category"
+  And User navigates to cart and removes "product"

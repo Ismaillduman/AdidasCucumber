@@ -1,5 +1,6 @@
 package com.demoblazee.step_definitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
@@ -14,5 +15,10 @@ public class PurchaseSteps {
     public void user_adds_from(String string, String string2) {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
+    }
+
+    @And("User navigates to cart and removes {string}")
+    public void userNavigatesToCartAndRemoves(String product) {
+
     }
 }
