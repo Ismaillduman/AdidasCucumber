@@ -26,6 +26,16 @@ ProductPage productPage= new ProductPage();
 
     @And("User navigates to cart and removes {string}")
     public void userNavigatesToCartAndRemoves(String product) {
+        productPage.cart.click();
+        productPage.deleteProduct(product);
+
+
+
+    }
+
+    @And("user click on place order")
+    public void userClickOnPlaceOrder() {
+        productPage.place();
 
     }
 }
