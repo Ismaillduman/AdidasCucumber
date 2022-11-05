@@ -19,16 +19,7 @@ public WebElement addToCart;
 
 
 
-@FindBy(xpath = "//button[.='Place Order']")
-public WebElement placeOrder;
 
-public void place(){
-    WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(15));
-    wait.until(ExpectedConditions.visibilityOf(cart));
-    cart.click();
-    wait.until(ExpectedConditions.visibilityOf(placeOrder));
-   placeOrder.click();
-}
 
     @FindBy(xpath = " //td[contains(.,'Sony vaio i5')]/../td[4]/a")
     public WebElement sonyvaioI5Delete;
@@ -38,6 +29,7 @@ public void deleteProduct(String product){
     String locator= " //td[contains(.,'"+product+"')]/../td[4]/a";
     wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(locator)));
     Driver.get().findElement(By.xpath(locator)).click();
+    BrowserUtils.sleep(2);
 
 }
 
@@ -64,6 +56,17 @@ public void addToCart(){
     alert.accept();
 }
 
+    @FindBy(xpath = "//button[.='Place Order']")
+    public WebElement placeOrder;
+
+
+    public void place(){
+        //WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(15));
+        //wait.until(ExpectedConditions.visibilityOf(cart));
+
+    }
+@FindBy(id="totalp")
+    public WebElement totalPrice;
 
 }
 
