@@ -1,43 +1,62 @@
 package com.demoblazee.pages;
 
+
+import com.demoblazee.utilities.BrowserUtils;
 import com.github.javafaker.Faker;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 
-
-public class PlaceOrderPage extends BasePage{
+public class PlaceOrderPage extends BasePage {
 
     @FindBy(id = "name")
     public WebElement name;
 
-    public WebElement _country;
+    @FindBy(id = "country")
+    public WebElement country;
 
-    public WebElement _city;
+    @FindBy(id = "city")
+    public WebElement city;
 
-    public WebElement _card;
+    @FindBy(id = "card")
+    public WebElement creditCard;
 
-    public WebElement _month;
+    @FindBy(id = "month")
+    public WebElement month;
 
-    public WebElement _year;
+    @FindBy(id = "year")
+    public WebElement year;
 
-    @FindBy(xpath = "//button[contains(.,'Purchase')]")
-    public WebElement purchaseButton;
+    @FindBy (xpath = "//button[.='Purchase']")
+    public WebElement purchase;
 
-    public void randomText(){
+
+    public void fillForm() {
+        BrowserUtils.sleep(2);
 
         Faker faker = new Faker();
+
         name.sendKeys(faker.name().fullName());
-        _country.sendKeys(faker.country().name());
-        _city.sendKeys(faker.country().capital());
-        _card.sendKeys(faker.finance().creditCard());
-        _month.sendKeys(""+faker.number().numberBetween(1,12));
-        _year.sendKeys(""+faker.number().numberBetween(2020,2030));
-        purchaseButton.click();
 
+        country.sendKeys(faker.country().name());
 
+        city.sendKeys(faker.country().capital());
 
+        creditCard.sendKeys(faker.finance().creditCard());
 
+        month.sendKeys("" + faker.number().numberBetween(1, 12));
 
+        year.sendKeys(String.valueOf(faker.number().numberBetween(2022, 2030)));
+        purchase.click();
     }
+
+    @FindBy(xpath = "//p[@class='lead text-muted ']")
+    public WebElement orderDetails;
+
+
+
 }

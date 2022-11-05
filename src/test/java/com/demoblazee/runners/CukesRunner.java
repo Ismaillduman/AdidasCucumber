@@ -10,6 +10,8 @@ import java.awt.*;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
+        plugin= {"json:target/cucumber.json",
+                "html:target/cucumber-report.html"},
       features ="src/test/resources/features",
         glue = "com/demoblazee/step_definitions",
         dryRun = false,
@@ -18,4 +20,5 @@ import java.awt.*;
 
 )
 public class CukesRunner {
+
 }
