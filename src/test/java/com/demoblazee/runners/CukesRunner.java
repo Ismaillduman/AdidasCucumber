@@ -14,7 +14,7 @@ import java.awt.*;
                 "html:target/cucumber-report.html"},
       features ="src/test/resources/features",
         glue = "com/demoblazee/step_definitions",
-        dryRun = false,
+        dryRun = true,
         tags = "@wip"
 
 
